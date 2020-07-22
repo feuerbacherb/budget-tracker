@@ -34,7 +34,7 @@ function saveRecord(record) {
     const transaction = db.transaction(['pending', 'readwrite']);
 
     // access the object store for the 'pending'
-    const budgetObjectStore = transaction.pizzaObjectStore('pending');
+    const budgetObjectStore = transaction.objectStore('pending');
 
     // add record to the store with the add method
     budgetObjectStore.add(record);
