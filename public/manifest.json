@@ -33,7 +33,6 @@
       ],
       "name": "Budget Tracker",
       "short_name": "Budget",
-      "orientation": "portrait",
       "display": "standalone",
       "start_url": ".",
       "description": "An online / offline application that tracks your spending",
