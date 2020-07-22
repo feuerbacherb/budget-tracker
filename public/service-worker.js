@@ -6,11 +6,12 @@ const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION;
 
 const FILES_TO_CACHE = [
-    "./public/index.html",
-    "./public/assets/js/index.js",
-    "./public/assets/js/db.js",
-    "./public/images/icons/icon-192x192.png",
-    "./public/images/icons/icon-512x512.png"
+
+    "./index.html",
+    "./js/index.js",
+    "./js/idb.js",
+    "./icons/icon-192x192.png",
+    "./icons/icon-512x512.png"
 ];
 
 self.addEventListener('install', function(e) {
