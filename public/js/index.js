@@ -2,9 +2,6 @@
 let transactions = [];
 let myChart;
 
-Notification.requestPermission(function(status) {
-  console.log('Notification permission status:', status);
-});
 
 fetch("/api/transaction")
   .then(response => {
