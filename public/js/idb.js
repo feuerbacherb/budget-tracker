@@ -13,16 +13,6 @@ request.onupgradeneeded = function(event) {
     db.createObjectStore('pending', { autoIncrement: true });
 };
 
-request.onsuccess = function(event) {
-    // when the database is successfully created with its object store (from onupgradeneeded event) or simply established a connection, save reference to the database in global variable
-    db = event.target.result;
-
-    // check if the app is online: if yes then run UploadPending() function to send a local database data to the api
-    if (navigator.online) {
-        UploadPending();
-    }
-};
-
 request.onerror = function(event) {
     // log any errors here
     console.log(event.target.errorCode);
@@ -83,6 +73,17 @@ function uploadPending() {
                     console.log(err);
                 });
         }
+    }
+};
+
+request.onsuccess = function(event) {
+    // when the database is successfully created with its object store (from onupgradeneeded event) or simply established a connection, save reference to the database in global variable
+    db = event.target.result;
+
+    // check if the app is online: if yes then run UploadPending() function to send a local database data to the api
+    if (navigator.onLine) {
+        const transaction = db.transaction(['pending'], 'readwrite');
+        uploadPending();
     }
 };
 
